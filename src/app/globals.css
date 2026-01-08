@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: var(--color-paper);
+  --color-card: var(--color-card);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-accent: var(--color-accent);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-primary: var(--color-primary);
+  --color-border: var(--color-border);
+  
+  /* Constant colors for dark mode context */
+  --color-midnight: #0F172A;
+  --color-midnight-light: #1E293B;
+
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-inter), sans-serif;
+
+  --radius-lg: 1rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
+}
+
+@layer base {
+  :root {
+    --color-paper: #FDFBF7;    /* Antique Ivory */
+    --color-card: #FFFFFF;     /* Pure Sheet */
+    --color-ink: #1B1B1B;      /* Iron Gall Ink */
+    --color-ink-muted: #6B7280;/* Faded Slate */
+    --color-accent: #B8860B;   /* Burnished Gold */
+    --color-accent-soft: rgba(184, 134, 11, 0.1);
+    --color-primary: #1B3022;  /* Scholar Green */
+    --color-border: rgba(27, 27, 27, 0.08);
+
+    /* Legacy support to prevent immediate breakage */
+    --color-bkash: var(--color-accent);
+    --color-teal: var(--color-primary);
+  }
+
+  .dark {
+    --color-paper: #0F1113;    /* Midnight Archive */
+    --color-card: #1C2024;     /* Dark Leather */
+    --color-ink: #E5E7EB;      /* Silver Type */
+    --color-ink-muted: #9CA3AF;
+    --color-accent: #D4AF37;   /* Metallic Gold */
+    --color-accent-soft: rgba(212, 175, 55, 0.15);
+    --color-primary: #34D399;  /* Emerald Glow */
+    --color-border: rgba(255, 255, 255, 0.06);
+
+    --color-bkash: var(--color-accent);
+    --color-teal: var(--color-primary);
+  }
+
+  .sepia {
+    --color-paper: #F4ECD8;    /* Rare Manuscript */
+    --color-card: #F9F1E2;     /* Aged Vellum */
+    --color-ink: #4E3B31;      /* Walnut Ink */
+    --color-ink-muted: #8B7365;
+    --color-accent: #9B2C2C;   /* Wax Seal Red */
+    --color-accent-soft: rgba(155, 44, 44, 0.1);
+    --color-primary: #5C4033;  /* Bibliophile Brown */
+    --color-border: rgba(78, 59, 49, 0.12);
+
+    --color-bkash: var(--color-accent);
+    --color-teal: var(--color-primary);
+  }
+
+  body {
+    @apply bg-paper text-ink transition-colors duration-500 selection:bg-accent-soft selection:text-accent;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    position: relative;
+  }
+
+  /* Enhanced Paper Texture Overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    mix-blend-mode: multiply;
+  }
+
+  .dark body::before {
+    mix-blend-mode: screen;
+    opacity: 0.03;
+    background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  }
+
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border shadow-2xl;
+  }
+
+  .vintage-border {
+    @apply border-2 border-accent/20 p-1 rounded-md bg-paper ring-1 ring-accent/10;
+  }
+}
