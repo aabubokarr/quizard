@@ -3,8 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Search, Smartphone, Zap, Sparkles, Book as BookIcon } from "lucide-react";
-import { ArchivalHeader } from "@/components/ui/ArchivalHeader";
-import { ParchmentContainer } from "@/components/ui/ParchmentContainer";
+import { PageHeader } from "@/components/ui/PageHeader";
+// import { ParchmentContainer } from "@/components/ui/ParchmentContainer";
 
 const VAULT_RECORDS = [
   {
@@ -39,8 +39,9 @@ const VAULT_RECORDS = [
 
 export default function VaultShowcaseSection() {
   return (
-    <ParchmentContainer className="pb-32">
-      <ArchivalHeader 
+    <section className="relative overflow-hidden bg-paper py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <PageHeader 
         badge="Technical Mastery"
         badgeIcon={<BookIcon className="h-3.5 w-3.5" />}
         title="Modern Features."
@@ -78,6 +79,7 @@ export default function VaultShowcaseSection() {
           </motion.div>
         ))}
       </div>
-    </ParchmentContainer>
+      </div>
+    </section>
   );
 }

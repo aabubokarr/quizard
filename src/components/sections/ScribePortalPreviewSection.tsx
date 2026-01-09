@@ -3,14 +3,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { LayoutDashboard, BookOpen, Users, Settings, BarChart3, Feather } from "lucide-react";
-import { ArchivalHeader } from "@/components/ui/ArchivalHeader";
-import { ParchmentContainer } from "@/components/ui/ParchmentContainer";
-import { FolioButton } from "@/components/ui/FolioButton";
+import { PageHeader } from "@/components/ui/PageHeader";
+// import { ParchmentContainer } from "@/components/ui/ParchmentContainer";
+import { Button } from "@/components/ui/Button";
 
 export default function ScribePortalPreviewSection() {
   return (
-    <ParchmentContainer className="pb-32 overflow-hidden">
-      <ArchivalHeader 
+    <section className="relative overflow-hidden bg-paper py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <PageHeader 
         badge="Creator Ecosystem"
         badgeIcon={<Feather className="h-4 w-4" />}
         title="Built for Modern Scribes."
@@ -84,7 +85,14 @@ export default function ScribePortalPreviewSection() {
                 </div>
                 <div className="flex gap-3">
                   {['24H', '7D', '30D'].map(t => (
-                    <button key={t} className={`px-5 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all ${t === '7D' ? 'bg-ink text-paper shadow-lg' : 'bg-transparent text-ink/20 hover:text-ink'}`}>{t}</button>
+                    <Button 
+                      key={t} 
+                      variant={t === '7D' ? 'primary' : 'ghost'}
+                      size="sm"
+                      className={`rounded-xl text-[10px] ${t !== '7D' && 'text-ink/20 hover:text-ink bg-transparent'}`}
+                    >
+                      {t}
+                    </Button>
                   ))}
                 </div>
               </div>
@@ -110,6 +118,7 @@ export default function ScribePortalPreviewSection() {
       <div className="absolute bottom-20 right-20 opacity-[0.03] pointer-events-none scale-[2.5] rotate-12">
          <Feather className="h-64 w-64" />
       </div>
-    </ParchmentContainer>
+      </div>
+    </section>
   );
 }

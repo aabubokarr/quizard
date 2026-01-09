@@ -8,7 +8,6 @@ import InfiniteShelfSection from "@/components/sections/InfiniteShelfSection";
 import ReadingStreakSection from "@/components/sections/ReadingStreakSection";
 import CheckoutExperienceSection from "@/components/sections/CheckoutExperienceSection";
 import ScribePortalPreviewSection from "@/components/sections/ScribePortalPreviewSection";
-import TrustSection from "@/components/sections/TrustSection";
 import { Moon, Sun, Coffee } from "lucide-react";
 
 export default function Home() {
@@ -37,7 +36,6 @@ export default function Home() {
       <ReadingStreakSection />
       <CheckoutExperienceSection />
       <ScribePortalPreviewSection />
-      <TrustSection />
 
       {/* Theme Toggle Floating Button */}
       <button

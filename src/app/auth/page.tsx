@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Coffee, Moon, Sun, ArrowRight, Github, Mail, Lock, User, Sparkles, Feather } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
+import { Button } from "@/components/ui/Button";
 
 export default function AuthPage() {
   const [mode, setMode] = useState<"login" | "signup">("login");
@@ -112,10 +113,14 @@ export default function AuthPage() {
                 </div>
               )}
 
-              <button className="w-full h-16 bg-ink text-paper rounded-[24px] font-bold text-lg flex items-center justify-center gap-3 hover:bg-accent transition-all shadow-xl mt-6">
+              <Button 
+                fullWidth 
+                size="xl" 
+                className="mt-6 flex items-center justify-center gap-3 shadow-xl"
+              >
                 {mode === "login" ? "Enter the Archives" : "Create My Record"}
                 <ArrowRight className="h-5 w-5" />
-              </button>
+              </Button>
             </form>
 
             <div className="mt-12 text-center">
@@ -128,15 +133,17 @@ export default function AuthPage() {
       </div>
 
       {/* Theme Toggle Floating Button */}
-      <button
+      <Button
+        variant="icon"
+        size="icon"
         onClick={toggleTheme}
-        className="fixed bottom-8 right-8 z-[60] h-14 w-14 rounded-full bg-ink text-paper shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all"
+        className="fixed bottom-8 right-8 z-[60] h-14 w-14 shadow-2xl"
         aria-label="Toggle Theme"
       >
         {theme === "light" && <Coffee className="h-6 w-6" />}
         {theme === "sepia" && <Moon className="h-6 w-6" />}
         {theme === "dark" && <Sun className="h-6 w-6" />}
-      </button>
+      </Button>
     </main>
   );
 }

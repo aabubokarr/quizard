@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: "A premium digital sanctuary for bibliophiles. Preserving independent voices through modern technology.",
 };
 
+import Footer from "@/components/layout/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,6 +28,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="antialiased">
         {children}
+        <Footer />
       </body>
     </html>
   );

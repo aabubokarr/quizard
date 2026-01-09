@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Heart, Scroll, Shield, Globe, Facebook, Instagram, Twitter } from "lucide-react";
 import { ManuscriptBadge } from "@/components/ui/ManuscriptBadge";
 
-export default function TrustSection() {
+export default function Footer() {
   return (
     <footer className="bg-paper border-t border-border pt-24 pb-16 relative overflow-hidden">
       {/* Background Decorative Element */}
@@ -35,7 +35,7 @@ export default function TrustSection() {
           <div className="text-center sm:text-left">
             <h4 className="font-black text-[10px] mb-10 uppercase tracking-[0.4em] text-ink/20 font-sans">The Archives</h4>
             <ul className="space-y-6 text-ink font-bold text-sm tracking-tight">
-              <li><Link href="/marketplace" className="hover:text-accent transition-all hover:translate-x-1 inline-block">Digital Emporium</Link></li>
+              <li><Link href="/bookstore" className="hover:text-accent transition-all hover:translate-x-1 inline-block">Digital Emporium</Link></li>
               <li><Link href="/authors" className="hover:text-accent transition-all hover:translate-x-1 inline-block">Scribe Portal</Link></li>
               <li><Link href="#" className="hover:text-accent transition-all hover:translate-x-1 inline-block">Gift Manuscripts</Link></li>
               <li><Link href="#" className="hover:text-accent transition-all hover:translate-x-1 inline-block">Curated Collections</Link></li>

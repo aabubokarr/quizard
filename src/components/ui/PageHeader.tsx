@@ -4,7 +4,7 @@ import React from "react";
 import { cn } from "@/lib/utils/cn";
 import { ManuscriptBadge } from "./ManuscriptBadge";
 
-interface ArchivalHeaderProps {
+interface PageHeaderProps {
   badge?: string;
   badgeIcon?: React.ReactNode;
   title: string;
@@ -15,7 +15,7 @@ interface ArchivalHeaderProps {
   titleClassName?: string;
 }
 
-export function ArchivalHeader({
+export function PageHeader({
   badge,
   badgeIcon,
   title,
@@ -24,7 +24,7 @@ export function ArchivalHeader({
   centered = true,
   className,
   titleClassName,
-}: ArchivalHeaderProps) {
+}: PageHeaderProps) {
   return (
     <div className={cn(
       "max-w-4xl",
@@ -32,13 +32,13 @@ export function ArchivalHeader({
       className
     )}>
       {badge && (
-        <ManuscriptBadge icon={badgeIcon} className="mb-8">
+        <ManuscriptBadge icon={badgeIcon} className="mb-2">
           {badge}
         </ManuscriptBadge>
       )}
       
       <h1 className={cn(
-        "font-serif text-5xl md:text-7xl font-bold text-ink leading-tight mb-8",
+        "font-serif text-5xl md:text-7xl font-bold text-ink leading-tight mb-2",
         titleClassName
       )}>
         {title}{" "}

@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Eye, ShoppingCart, Star } from "lucide-react";
 import { formatBDT } from "@/lib/utils/currency";
-import { ArchivalHeader } from "@/components/ui/ArchivalHeader";
-import { ParchmentContainer } from "@/components/ui/ParchmentContainer";
+import { PageHeader } from "@/components/ui/PageHeader";
+// import { ParchmentContainer } from "@/components/ui/ParchmentContainer";
+import { Button } from "@/components/ui/Button";
 
 const RECENT_MANUSCRIPTS = [
   { id: 1, title: "The Dust in Dhaka", author: "Hassan Mahmud", price: 250, color: "bg-[#7A5C43]", excerpt: "A gripping tale of resilience in the heart of a bustling metropolis. The city breathes through its secrets." },
@@ -20,8 +21,9 @@ export default function InfiniteShelfSection() {
   const [hoveredManuscript, setHoveredManuscript] = useState<number | null>(null);
 
   return (
-    <ParchmentContainer withBorder className="overflow-hidden">
-      <ArchivalHeader 
+    <section className="relative overflow-hidden bg-paper border-y border-border py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <PageHeader 
         centered={false}
         badge="Bestsellers Gallery"
         badgeIcon={<Star className="h-3.5 w-3.5 fill-accent" />}
@@ -88,12 +90,12 @@ export default function InfiniteShelfSection() {
                          </div>
                         <p className="text-sm font-black text-accent mb-3 uppercase tracking-widest">{formatBDT(folio.price)}</p>
                         <div className="flex gap-4 mb-8">
-                          <button className="h-12 w-12 rounded-full bg-ink text-paper hover:bg-accent transition-colors flex items-center justify-center shadow-lg">
+                          <Button variant="icon" size="icon" className="h-12 w-12 shadow-lg">
                             <Eye className="h-5 w-5" />
-                          </button>
-                          <button className="h-12 w-12 rounded-full bg-ink text-paper hover:bg-accent transition-colors flex items-center justify-center shadow-lg">
+                          </Button>
+                          <Button variant="icon" size="icon" className="h-12 w-12 shadow-lg">
                             <ShoppingCart className="h-5 w-5" />
-                          </button>
+                          </Button>
                         </div>
                         
                         <motion.p 
@@ -117,6 +119,7 @@ export default function InfiniteShelfSection() {
           </motion.div>
         </motion.div>
       </div>
-    </ParchmentContainer>
+      </div>
+    </section>
   );
 }

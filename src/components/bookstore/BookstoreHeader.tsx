@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Search, ChevronDown, BookOpen, Sparkles, Filter } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function MarketplaceHeader() {
+export default function BookstoreHeader() {
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const categories = [
     "Poetry", "History", "Science Fiction", "Biography", 
@@ -79,14 +79,6 @@ export default function MarketplaceHeader() {
               )}
             </AnimatePresence>
           </div>
-        </div>
-
-        {/* Active Filters (Optional visual space) */}
-        <div className="mt-8 flex gap-2">
-           <div className="animate-pulse flex items-center gap-2 text-[10px] font-black text-accent uppercase tracking-widest px-4 py-2 rounded-full border border-accent/20 bg-accent/5">
-              <Sparkles className="h-3 w-3" />
-              New Manuscripts Added Weekly
-           </div>
         </div>
       </div>
     </div>

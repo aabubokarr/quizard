@@ -4,14 +4,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Trophy, ScrollText, BookOpen } from "lucide-react";
 import { ManuscriptBadge } from "@/components/ui/ManuscriptBadge";
-import { ParchmentContainer } from "@/components/ui/ParchmentContainer";
+// import { ParchmentContainer } from "@/components/ui/ParchmentContainer";
 
 export default function ReadingStreakSection() {
   const weekDays = ["M", "T", "W", "T", "F", "S", "S"];
   const currentStreak = 14; 
 
   return (
-    <ParchmentContainer className="pb-32">
+    <section className="relative overflow-hidden bg-paper py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-5xl mx-auto rounded-[64px] bg-[#111111] p-10 md:p-20 text-paper shadow-[0_40px_100px_rgba(0,0,0,0.4)] relative overflow-hidden border border-white/5 group">
         
         {/* Archival Glow */}
@@ -117,6 +118,7 @@ export default function ReadingStreakSection() {
 
         </div>
       </div>
-    </ParchmentContainer>
+      </div>
+    </section>
   );
 }

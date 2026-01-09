@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Star, ShieldCheck, ShoppingCart } from "lucide-react";
 import { formatBDT } from "@/lib/utils/currency";
+import { Button } from "@/components/ui/Button";
 
 interface BookCardProps {
   book: {
@@ -13,11 +14,12 @@ interface BookCardProps {
     price: number;
     rating: number;
     color: string;
+    excerpt?: string;
   };
   onQuickView: () => void;
 }
 
-export default function BookCard({ book, onQuickView }: BookCardProps) {
+export function BookCard({ book, onQuickView }: BookCardProps) {
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.9 }}
@@ -37,9 +39,9 @@ export default function BookCard({ book, onQuickView }: BookCardProps) {
         
         {/* Quick View Button (Vintage Style) */}
         <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform bg-gradient-to-t from-black/60 to-transparent">
-           <button className="w-full py-3 bg-paper text-ink rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-accent hover:text-paper transition-all">
+           <Button variant="primary" fullWidth className="py-3 text-xs bg-paper text-ink hover:bg-accent hover:text-paper border-none">
              Examine Folio
-           </button>
+           </Button>
         </div>
 
         {/* Top Badges */}
@@ -50,21 +52,21 @@ export default function BookCard({ book, onQuickView }: BookCardProps) {
         </div>
       </div>
 
-      <div className="mt-6 space-y-2">
-        <div className="flex justify-between items-start gap-4">
-          <h3 className="font-serif text-xl font-bold text-ink leading-tight group-hover:text-accent transition-colors cursor-pointer" onClick={onQuickView}>{book.title}</h3>
-          <span className="text-sm font-black text-ink">{formatBDT(book.price)}</span>
+      <div className="mt-4 space-y-1.5">
+        <div className="flex justify-between items-start gap-2">
+          <h3 className="font-serif text-base font-bold text-ink leading-tight group-hover:text-accent transition-colors cursor-pointer line-clamp-2" onClick={onQuickView}>{book.title}</h3>
+          <span className="text-xs font-black text-ink whitespace-nowrap">{formatBDT(book.price)}</span>
         </div>
-        <p className="text-xs font-black uppercase tracking-widest text-ink/40">{book.author}</p>
+        <p className="text-[10px] font-black uppercase tracking-wider text-ink/40">{book.author}</p>
         
-        <div className="flex items-center justify-between pt-2">
-          <div className="flex items-center gap-1">
-             <Star className="h-3 w-3 fill-accent text-accent" />
-             <span className="text-[10px] font-black text-ink">{book.rating}</span>
+        <div className="flex items-center justify-between pt-1.5">
+          <div className="flex items-center gap-0.5">
+             <Star className="h-2.5 w-2.5 fill-accent text-accent" />
+             <span className="text-[9px] font-black text-ink">{book.rating}</span>
           </div>
-          <div className="flex items-center gap-1.5 opacity-40 group-hover:opacity-100 transition-opacity">
-             <ShieldCheck className="h-3 w-3 text-accent" />
-             <span className="text-[8px] font-black uppercase tracking-widest">Digital Archive Certified</span>
+          <div className="flex items-center gap-1 opacity-40 group-hover:opacity-100 transition-opacity">
+             <ShieldCheck className="h-2.5 w-2.5 text-accent" />
+             <span className="text-[7px] font-black uppercase tracking-wider">Certified</span>
           </div>
         </div>
       </div>

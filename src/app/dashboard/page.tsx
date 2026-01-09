@@ -10,9 +10,9 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import { ManuscriptBadge } from "@/components/ui/ManuscriptBadge";
-import { ArchivalHeader } from "@/components/ui/ArchivalHeader";
-import { FolioButton } from "@/components/ui/FolioButton";
-import { ParchmentContainer } from "@/components/ui/ParchmentContainer";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { Button } from "@/components/ui/Button";
+// import { ParchmentContainer } from "@/components/ui/ParchmentContainer";
 
 const ARCHIVE_INVENTORY = [
   {
@@ -76,13 +76,13 @@ export default function DashboardPage() {
           
           <div className="flex items-center gap-6 w-full lg:w-auto">
              <div className="flex flex-1 lg:flex-none items-center gap-4">
-               <button className="h-16 w-16 rounded-3xl bg-card border border-border flex items-center justify-center text-ink/20 hover:text-accent hover:border-accent transition-all shadow-sm">
+               <Button variant="ghost" className="h-16 w-16 rounded-3xl bg-card border border-border flex items-center justify-center text-ink/20 hover:text-accent hover:border-accent transition-all shadow-sm p-0">
                  <Search className="h-7 w-7" />
-               </button>
-               <button className="h-16 w-16 rounded-3xl bg-card border border-border flex items-center justify-center text-ink/20 hover:text-accent hover:border-accent transition-all shadow-sm relative">
+               </Button>
+               <Button variant="ghost" className="h-16 w-16 rounded-3xl bg-card border border-border flex items-center justify-center text-ink/20 hover:text-accent hover:border-accent transition-all shadow-sm relative p-0">
                  <Bell className="h-7 w-7" />
                  <div className="absolute top-5 right-5 h-3 w-3 rounded-full bg-accent border-2 border-card shadow-lg" />
-               </button>
+               </Button>
              </div>
              <div className="h-16 w-16 rounded-3xl bg-ink flex items-center justify-center text-paper font-serif font-black text-2xl shadow-2xl border border-white/5">
                 MD
@@ -102,7 +102,7 @@ export default function DashboardPage() {
                    <Scroll className="h-8 w-8 text-accent opacity-50" />
                    <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink tracking-tight">Active Manuscripts</h2>
                 </div>
-                <Link href="/marketplace" className="text-[10px] font-black uppercase tracking-[0.3em] text-accent hover:underline flex items-center gap-2 group">
+                <Link href="/bookstore" className="text-[10px] font-black uppercase tracking-[0.3em] text-accent hover:underline flex items-center gap-2 group">
                   Access Vault <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -162,8 +162,8 @@ export default function DashboardPage() {
                    <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink tracking-tight">The Scholar's Path</h2>
                 </div>
                 <div className="flex gap-4">
-                  <button className="h-12 w-12 rounded-2xl bg-card border border-border flex items-center justify-center text-ink/20 cursor-not-allowed"><ChevronRight className="h-6 w-6 rotate-180" /></button>
-                  <button className="h-12 w-12 rounded-2xl bg-card border border-border flex items-center justify-center text-ink hover:border-accent hover:text-accent transition-all shadow-sm"><ChevronRight className="h-6 w-6" /></button>
+                  <Button variant="ghost" className="h-12 w-12 rounded-2xl bg-card border border-border flex items-center justify-center text-ink/20 cursor-not-allowed p-0"><ChevronRight className="h-6 w-6 rotate-180" /></Button>
+                  <Button variant="ghost" className="h-12 w-12 rounded-2xl bg-card border border-border flex items-center justify-center text-ink hover:border-accent hover:text-accent transition-all shadow-sm p-0"><ChevronRight className="h-6 w-6" /></Button>
                 </div>
               </div>
 
@@ -266,14 +266,15 @@ export default function DashboardPage() {
       </div>
 
       <div className="fixed bottom-10 right-10 z-50">
-        <FolioButton 
+        <Button 
+           variant="icon"
            onClick={toggleTheme}
            className="h-16 w-16 p-0 bg-ink text-paper shadow-2xl"
         >
           {theme === "light" && <Coffee className="h-7 w-7" />}
           {theme === "sepia" && <Moon className="h-7 w-7" />}
           {theme === "dark" && <Sun className="h-7 w-7" />}
-        </FolioButton>
+        </Button>
       </div>
     </main>
   );

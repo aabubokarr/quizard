@@ -8,10 +8,9 @@ import {
   Coffee, Moon, Sun, Scroll
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
-import TrustSection from "@/components/sections/TrustSection";
-import { ArchivalHeader } from "@/components/ui/ArchivalHeader";
-import { FolioButton } from "@/components/ui/FolioButton";
-import { ParchmentContainer } from "@/components/ui/ParchmentContainer";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { Button } from "@/components/ui/Button";
+// import { ParchmentContainer } from "@/components/ui/ParchmentContainer";
 
 export default function AuthorsPage() {
   const [theme, setTheme] = useState<"light" | "sepia" | "dark">("light");
@@ -78,27 +77,30 @@ export default function AuthorsPage() {
       <Navbar />
       
       {/* Scribe Portal Hero */}
-      <ParchmentContainer className="pt-32 pb-24">
-        <ArchivalHeader 
+      <div className="pt-32">
+        <PageHeader 
           badge="Scribe Portal"
           badgeIcon={<Feather className="h-4 w-4" />}
-          title="Write Your Legacy."
-          italicTitle="Own Your Future."
+          title="Write Your"
+          italicTitle="Own Legacy."
           description="Join a movement of modern authors redefining the literary landscape in Bangladesh through transparency and technology."
         />
-        
+      </div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
-          <FolioButton size="lg" icon={<ArrowRight className="h-5 w-5" />}>
+          <Button size="lg" icon={<ArrowRight className="h-5 w-5" />}>
             Apply to Publish
-          </FolioButton>
-          <FolioButton variant="outline" size="lg">
+          </Button>
+          <Button variant="outline" size="lg">
             Scribe Manifesto
-          </FolioButton>
+          </Button>
         </div>
-      </ParchmentContainer>
+      </div>
 
       {/* Benefits Grid */}
-      <ParchmentContainer withBorder className="bg-card">
+      <section className="relative overflow-hidden bg-card border-y border-border py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {scribeBenefits.map((benefit, idx) => (
             <motion.div
@@ -116,15 +118,17 @@ export default function AuthorsPage() {
             </motion.div>
           ))}
         </div>
-      </ParchmentContainer>
+        </div>
+      </section>
 
       {/* Spotlight Section */}
-      <ParchmentContainer>
+      <section className="relative overflow-hidden bg-paper py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="absolute top-0 right-0 opacity-[0.02] pointer-events-none">
            <Scroll className="h-96 w-96 translate-x-1/2 -translate-y-1/2" />
         </div>
         
-        <ArchivalHeader 
+        <PageHeader 
           centered={false}
           title="Master Scribes."
           description="Witness the impact of creators who have chosen the Boifinity path."
@@ -157,10 +161,11 @@ export default function AuthorsPage() {
             </motion.div>
           ))}
         </div>
-      </ParchmentContainer>
+        </div>
+      </section>
 
       {/* Settlement Section */}
-      <section className="py-24 bg-ink text-paper relative overflow-hidden">
+      <section className="py-20 bg-ink text-paper relative overflow-hidden">
         <div className="absolute inset-0 bg-accent/5 pointer-events-none" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <div className="max-w-3xl mx-auto">
@@ -184,18 +189,20 @@ export default function AuthorsPage() {
         </div>
       </section>
 
-      <TrustSection />
+
 
       {/* Theme Toggle Floating Button */}
-      <button
+      <Button
+        variant="icon"
+        size="icon"
         onClick={toggleTheme}
-        className="fixed bottom-8 right-8 z-[60] h-14 w-14 rounded-full bg-ink text-paper shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all"
+        className="fixed bottom-8 right-8 z-[60] h-14 w-14 shadow-2xl"
         aria-label="Toggle Theme"
       >
         {theme === "light" && <Coffee className="h-6 w-6" />}
         {theme === "sepia" && <Moon className="h-6 w-6" />}
         {theme === "dark" && <Sun className="h-6 w-6" />}
-      </button>
+      </Button>
     </main>
   );
 }
