@@ -1,7 +1,7 @@
 import express from "express";
-import bookRoutes from "./routes/bookRoutes.js";
 import { connectDB } from "./config/db.js";
 import dotenv from "dotenv";
+import mcqRoutes from "./routes/mcqRoutes.js"
 
 dotenv.config();
 
@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 //middleware
 app.use(express.json());
 
-app.use("/book", bookRoutes);
+app.use("/mcq", mcqRoutes)
 
 connectDB().then(() => {
   app.listen(PORT, () => {

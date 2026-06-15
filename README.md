@@ -1,1 +1,1 @@
-# Boifinity - eBook Application
+# Quizard - Quiz Application
