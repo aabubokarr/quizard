@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const truefalseSchema = mongoose.Schema(
+const trueFalseSchema = new mongoose.Schema(
   {
     question: {
       type: String,
@@ -14,6 +14,6 @@ const truefalseSchema = mongoose.Schema(
   { timestamp: true }
 );
 
-const TrueFalse = mongoose.model("TrueFalse", truefalseSchema);
+const TrueFalse = mongoose.model("TrueFalse", trueFalseSchema);
 
 export default TrueFalse;
